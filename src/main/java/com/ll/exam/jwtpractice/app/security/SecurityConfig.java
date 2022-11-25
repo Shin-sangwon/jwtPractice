@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
@@ -13,10 +12,10 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @RequiredArgsConstructor
 @EnableWebSecurity
 public class SecurityConfig {
-
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http, AuthenticationConfiguration authenticationConfiguration) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, AuthenticationConfiguration authenticationConfiguration) throws Exception {
         http
+
                 .cors().disable() // 타 도메인에서 API 호출 가능
                 .csrf().disable() // CSRF 토큰 끄기
                 .httpBasic().disable() // httpBasic 로그인 방식 끄기
