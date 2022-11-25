@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://127.0.0.1:3306/jwtPractice_test?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul
+    driver-class-name:
+    username: root
+    password: root123
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
