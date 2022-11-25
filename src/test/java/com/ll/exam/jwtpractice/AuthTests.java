@@ -25,7 +25,7 @@ class AuthTests {
     private MockMvc mockMvc;
 
     @Test
-    @DisplayName("회원 2명 추가")
+    @DisplayName("POST /member/login은 로그인 처리 url이다")
     void t1() throws Exception {
 
         ResultActions resultActions = mockMvc
