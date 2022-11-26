@@ -62,4 +62,14 @@ public class MemberController {
                               "TestHeaders", "TEST"));
     }
 
+    @GetMapping("/me")
+    public ResponseEntity<RsData> showMe(@AuthenticationPrincipal MemberContext member) {
+
+        if(member == null) { // 임시 코드
+            return Util.Spring.responseEntityOf(RsData.failOf(null));
+        }
+
+        return Util.Spring.responseEntityOf(RsData.successOf(member));
+    }
+
 }
