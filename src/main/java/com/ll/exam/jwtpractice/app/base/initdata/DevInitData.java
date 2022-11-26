@@ -1,4 +1,4 @@
-package com.ll.exam.jwtpractice.app.base;
+package com.ll.exam.jwtpractice.app.base.initdata;
 
 import com.ll.exam.jwtpractice.app.member.entity.Member;
 import com.ll.exam.jwtpractice.app.member.service.MemberService;
@@ -8,12 +8,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@Profile("test")
+@Profile("dev")
 @Configuration
-public class TestInitData {
+public class DevInitData {
 
     @Bean
-    CommandLineRunner initDevData(MemberService memberService, PasswordEncoder passwordEncoder) {
+    CommandLineRunner initTestData(MemberService memberService, PasswordEncoder passwordEncoder) {
         String password = passwordEncoder.encode("1234");
         return args -> {
             Member member1 = memberService.join("user1", password, "user1@test.com");

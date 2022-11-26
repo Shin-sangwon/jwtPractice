@@ -2,6 +2,7 @@ package com.ll.exam.jwtpractice.app.member.controller;
 
 import com.ll.exam.jwtpractice.app.member.entity.Member;
 import com.ll.exam.jwtpractice.app.member.service.MemberService;
+import com.ll.exam.jwtpractice.util.Util;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -42,7 +43,7 @@ public class MemberController {
 
         String body =  "username : %s, password : %s".formatted(loginDto.getUsername(), loginDto.getPassword());
 
-        return new ResponseEntity<>(body, headers, HttpStatus.OK);
+        return Util.Spring.responseEntityOf(headers);
     }
 
     @Data
