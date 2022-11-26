@@ -6,3 +6,7 @@ spring:
 logging:
   level:
     jwtPractice: debug
+
+custom:
+  jwt:
+    secretKey: secretKeysecretKeysecretKeysecretKeysecretKeysecretKeysecretKeysecretKeysecretKeysecretKey

@@ -20,6 +20,8 @@ public class MemberController {
 
     private final MemberService memberService;
     private final PasswordEncoder passwordEncoder;
+
+
     @PostMapping("/login")
     public ResponseEntity<RsData> login(@RequestBody LoginDto loginDto) {
 
@@ -37,7 +39,8 @@ public class MemberController {
             return Util.Spring.responseEntityOf(RsData.of("F-3", "비밀번호가 일치하지 않습니다."));
         }
 
-        String accessToken = "JWT_Access_Token";
+        String accessToken = memberService.genAccessToken(member);
+
         return Util.Spring.responseEntityOf(
                 RsData.of(
                         "S-1",
