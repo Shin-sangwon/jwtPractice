@@ -37,8 +37,15 @@ public class MemberController {
             return Util.Spring.responseEntityOf(RsData.of("F-3", "비밀번호가 일치하지 않습니다."));
         }
 
+        String accessToken = "JWT_Access_Token";
         return Util.Spring.responseEntityOf(
-                RsData.of("S-1", "로그인 성공, Access Token을 발급합니다."),
+                RsData.of(
+                        "S-1",
+                        "로그인 성공, Access Token을 발급합니다.",
+                        Util.mapOf(
+                                "accessToken", accessToken
+                        )
+                ),
                 Util.Spring.httpHeadersOf(
                         "Authentication", "JWT_Access_Token",
                               "TestHeaders", "TEST"));
