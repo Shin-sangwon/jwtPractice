@@ -1,11 +1,11 @@
 package com.ll.exam.jwtpractice.app.member.controller;
 
 import com.ll.exam.jwtpractice.app.base.dto.RsData;
+import com.ll.exam.jwtpractice.app.member.dto.LoginDto;
 import com.ll.exam.jwtpractice.app.member.entity.Member;
 import com.ll.exam.jwtpractice.app.member.service.MemberService;
 import com.ll.exam.jwtpractice.app.security.entity.MemberContext;
 import com.ll.exam.jwtpractice.util.Util;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -62,13 +62,4 @@ public class MemberController {
                               "TestHeaders", "TEST"));
     }
 
-    @Data
-    public static class LoginDto {
-        private String username;
-        private String password;
-
-        public boolean isNotValid() {
-            return username == null || password == null || username.trim().length() == 0 || password.trim().length() == 0;
-        }
-    }
 }
